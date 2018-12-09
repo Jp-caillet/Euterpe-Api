@@ -1,7 +1,7 @@
 {
-  "name": "api42",
+  "name": "Etherpe",
   "version": "1.0.0",
-  "author": "cvimard <cvimard@socialobjects.co>",
+  "author": "jp",
   "scripts": {
     "build": "yarn install && yarn start",
     "start": "node index.js",
