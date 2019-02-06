@@ -39,7 +39,7 @@ module.exports = class Show {
               if (i==tata.length-1) {
                 titi = titi +'" : '+ JSON.stringify(tata[i]) 
 
-              }else{
+              } else{
                 titi = titi +'" : '+ JSON.stringify(tata[i]) +','
               }
               
