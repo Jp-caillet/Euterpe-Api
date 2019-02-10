@@ -1,6 +1,7 @@
 const UserCreate = require('./user/create.js')
 const UserShow = require('./user/show.js')
-const UserSearch = require('./user/search.js')
+const UserSearchByEmail = require('./user/searchByEmail.js')
+const UserSearchByLogin = require('./user/searchByLogin.js')
 const UserUpdate = require('./user/update.js')
 const UserDestroy = require('./user/destroy.js')
 
@@ -8,7 +9,8 @@ module.exports = {
   user: {
     UserCreate,
     UserShow,
-    UserSearch,
+    UserSearchByEmail,
+    UserSearchByLogin,
     UserUpdate,
     UserDestroy
   }

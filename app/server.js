@@ -7,18 +7,6 @@ const helmet = require('helmet')
 
 // Core
 const routes = require('./controllers/routes.js')
-const sql = require('mssql')
-const config = {
-    user: 'jp',
-    password: 'Xr29StLb8',
-    server: '172.20.69.4', // You can use 'localhost\\instance' to connect to named instance
-    database: 'Referentiels',
-    driver: 'tedious',
-    options: {
-        encrypt: true // Use this if you're on Windows Azure
-    }
-}
-sql.connect(config)
 
 /**
  * Server
@@ -48,7 +36,8 @@ module.exports = class Server {
   routes () {
     new routes.user.UserCreate(this.app)
     new routes.user.UserShow(this.app)
-    new routes.user.UserSearch(this.app)
+    new routes.user.UserSearchByEmail(this.app)
+    new routes.user.UserSearchByLogin(this.app)
     new routes.user.UserUpdate(this.app)
     new routes.user.UserDestroy(this.app)
 
