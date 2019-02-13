@@ -40,6 +40,7 @@ module.exports = class Server {
     new routes.user.UserSearchByLogin(this.app)
     new routes.user.UserUpdate(this.app)
     new routes.user.UserDestroy(this.app)
+    new routes.user.UserLogin(this.app)
 
     // If route not exist
     this.app.use((req, res) => {

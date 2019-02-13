@@ -2,6 +2,7 @@
 const mongoose = require('mongoose')
 const Schema = require('../../models/users.js')
 const validator = require('node-validator')
+const uniqueValidator = require('mongoose-unique-validator')
 const bcrypt = require('bcrypt')
 const saltRounds = 10
 const myPlaintextPassword = 's0/\/\P4$$w0rD'
@@ -37,7 +38,7 @@ module.exports = class Create {
 
       console.error(`[ERROR] user/create getModel() -> Connetion fail`)
     })
-
+    Schema.plugin(uniqueValidator)
     const User = mongoose.model('User', Schema)
     const model = new User
 

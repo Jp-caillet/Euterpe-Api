@@ -26,13 +26,11 @@ module.exports = class SearchByEmail {
         this.db.collection('users').findOne({email: req.body.email}, function(err,obj) {
           if(obj == null){
             res.status(200).json({
-              'code': 200,
-              'message': 'email never used'
+              obj
             })
           }else{
             res.status(409).json({
-              'code': 409,
-              'message': 'email already used'
+              obj
             })
           }
           
