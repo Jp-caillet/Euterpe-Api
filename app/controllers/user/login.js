@@ -42,7 +42,7 @@ module.exports = class Login {
             if (!bcrypt.compareSync(req.body.mdp, user.mdp)) {
               res.status(401).json({ message: 'Authentication failed. Wrong password.' })
             } else {
-               res.status(200).json({token: jwt.sign({ email: user.email, login: user.login, _id: user._id}, 'Etherpepation')})
+               res.status(200).json({token: jwt.sign({ email: user.email, login: user.login, _id: user._id}, 'Etherpretation')})
             }
           }
         })

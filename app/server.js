@@ -34,6 +34,7 @@ module.exports = class Server {
    * Routes
    */
   routes () {
+    new routes.user.Me(this.app)
     new routes.user.UserCreate(this.app)
     new routes.user.UserShow(this.app)
     new routes.user.UserSearchByEmail(this.app)
