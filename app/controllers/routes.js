@@ -6,6 +6,10 @@ const UserSearchByLogin = require('./user/searchByLogin.js')
 const UserLogin = require('./user/login.js')
 const UserUpdate = require('./user/update.js')
 const UserDestroy = require('./user/destroy.js')
+const MusicCreate = require('./musique/create.js')
+const Musicshow = require('./musique/show.js')
+const RadioCreate = require('./radio/create.js')
+const RadioShow = require('./radio/show.js')
 
 module.exports = {
   user: {
@@ -17,5 +21,13 @@ module.exports = {
     UserUpdate,
     UserLogin,
     UserDestroy
+  },
+  musique: {
+    MusicCreate,
+    Musicshow
+  },
+  radio: {
+    RadioCreate,
+    RadioShow
   }
 }
