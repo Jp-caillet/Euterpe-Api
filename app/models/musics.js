@@ -10,15 +10,17 @@ module.exports = new Schema ({
   ended: Date,
   author: String,
   actions:{
-    like: Number,
-    delete:{
-      count: Number,
-      userID: Array
+    like:{
+      userID:[],
+      count: Number
+    },
+    dislike:{
+      userID: [],
+      count: Number
     }
   },
   pass: {
   	current: Boolean, 
-    vote: Number,
-    required: Number
+    vote: Number
   }  
 })

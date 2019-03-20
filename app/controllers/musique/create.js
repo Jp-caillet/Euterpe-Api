@@ -35,12 +35,10 @@ module.exports = class Create {
     model.started = new Date()
     model.ended = new Date()
     model.author = ""
-    model.actions.like = 0
-    model.actions.delete.count = 0
-    model.actions.delete.userID = []
     model.pass.current = current
+    model.actions.like.count = 0
     model.pass.vote = 0
-    model.pass.require = 5
+    model.actions.dislike.count = 0
 
     })  
     return model

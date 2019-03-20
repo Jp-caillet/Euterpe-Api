@@ -8,6 +8,8 @@ const UserUpdate = require('./user/update.js')
 const UserDestroy = require('./user/destroy.js')
 const MusicCreate = require('./musique/create.js')
 const Musicshow = require('./musique/show.js')
+const Musiclike = require('./musique/like.js')
+const Musicdislike = require('./musique/dislike.js')
 const RadioCreate = require('./radio/create.js')
 const RadioShow = require('./radio/show.js')
 
@@ -24,7 +26,9 @@ module.exports = {
   },
   musique: {
     MusicCreate,
-    Musicshow
+    Musicshow,
+    Musiclike,
+    Musicdislike
   },
   radio: {
     RadioCreate,

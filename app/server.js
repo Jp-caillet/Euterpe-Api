@@ -6,6 +6,8 @@ const express = require('express')
 const helmet = require('helmet')
 const cron = require('node-cron')
 const RadioActu = require('./radioActual/index.js')
+const server = require('http')
+const io = require('socket.io')
 
  
 
@@ -18,7 +20,8 @@ const routes = require('./controllers/routes.js')
 module.exports = class Server {
   constructor () {
     this.app = express()
-
+    this.server = server.createServer(this.app)
+    this.io = io(this.server)
     this.run()
   }
 
@@ -49,6 +52,8 @@ module.exports = class Server {
 
     new routes.musique.MusicCreate(this.app)
     new routes.musique.Musicshow(this.app)
+    new routes.musique.Musiclike(this.app)
+    new routes.musique.Musicdislike(this.app)
 
     new routes.radio.RadioCreate(this.app)
     new routes.radio.RadioShow(this.app)
@@ -83,7 +88,24 @@ module.exports = class Server {
       this.security()
       this.middleware()
       this.routes()
-      this.app.listen(4000)
+
+      this.io.on('connection', function(client) {
+        client.on('message', message => {
+          console.log(message)
+          const split = message.split("&/")
+          const radio = split[0]
+          const user = split[1]
+          const mess = split[2]
+          const date = new Date()
+          const heure = date.getHours()
+          const minute = date.getMinutes()
+          client.emit(radio, {user: user, mess: mess, heure: heure, minute: minute})
+        })
+    
+        
+      })
+
+      this.server.listen(4000)
     } catch (e) {
       console.error(`[ERROR] Server -> ${e}`)
     }
